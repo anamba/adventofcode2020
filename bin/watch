@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Usage: mix test.watch <day-number>
+
+mix test.watch test/day${1}_test.exs
