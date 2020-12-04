@@ -16,7 +16,7 @@ defmodule Day1.Part1 do
     part1("day1.txt")
   end
 
-  def look_for_complement(target, []), do: :error
+  def look_for_complement(_target, []), do: :error
 
   def look_for_complement(target, [i | rest]) do
     if (target - i) in rest do

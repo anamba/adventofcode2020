@@ -16,7 +16,7 @@ defmodule Day1.Part2 do
     part2("day1.txt")
   end
 
-  def look_for_triple(target, []), do: :error
+  def look_for_triple(_target, []), do: :error
 
   def look_for_triple(target, [i | rest]) do
     case look_for_complement(target - i, rest) do
@@ -25,7 +25,7 @@ defmodule Day1.Part2 do
     end
   end
 
-  def look_for_complement(target, []), do: :error
+  def look_for_complement(_target, []), do: :error
 
   def look_for_complement(target, [i | rest]) do
     if (target - i) in rest do

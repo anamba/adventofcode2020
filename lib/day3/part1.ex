@@ -11,7 +11,7 @@ defmodule Day3.Part1 do
   end
 
   def count_trees(map, start, slope, count \\ 0)
-  def count_trees({_map, width, height}, {_x, y}, _, count) when y > height, do: count
+  def count_trees({_map, _width, height}, {_x, y}, _, count) when y > height, do: count
 
   def count_trees({map, width, height}, {x, y}, {run, rise}, count) do
     # or 1
