@@ -2,6 +2,7 @@
 
 * Took a bit longer than it should to build the data structure, then got hung up for several minutes on a row vs. col mixup when accessing it (forgot that I need to `get_in([y, x])` instead of `[x, y]`).
 * Still pretty straightforward, my initial solution worked as expected for both parts (once I got it implemented properly). Part 2 did not add a new twist this time, which was unusual. (Unless of course, you assumed that you would always move down by one...)
+* I already realized this during last year's AoC, but once again, I really need to get better acquainted with `Stream`...
 
 ```
       -------Part 1--------   -------Part 2--------
