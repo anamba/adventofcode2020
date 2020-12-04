@@ -23,6 +23,7 @@ defmodule Aoc.MixProject do
     [
       {:flow, "~> 1.0"},
       {:matrix, "~> 0.3"},
+      {:matrex, "~> 0.6"},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false}
     ]
   end
