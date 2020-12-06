@@ -24,11 +24,10 @@ defmodule Day6.Part2 do
   end
 
   def count_common(group) do
-    group = Enum.map(group, &String.graphemes/1)
-
-    Enum.reduce(group, MapSet.new(List.first(group)), fn responses, acc ->
-      MapSet.intersection(MapSet.new(responses), acc)
-    end)
+    group
+    |> Enum.map(&String.graphemes/1)
+    |> Enum.map(&MapSet.new/1)
+    |> Enum.reduce(&MapSet.intersection/2)
     |> Enum.count()
   end
 end
