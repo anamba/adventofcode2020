@@ -2,6 +2,7 @@
 
 * I spent a lot of time, way too much time, reading over the description to find a catch, something that made it not just binary. But it was just binary. :facepalm:
 * Yes, there was a more efficient way to do part 1 (without "calculating" all the seat numbers). But I had to write the `seat_id` function anyway, so why not just use it...
+* Integer.undigits(2) would have been a better way to handle the binary conversion.
 
 ```
       -------Part 1--------   -------Part 2--------
