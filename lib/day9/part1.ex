@@ -33,7 +33,7 @@ defmodule Day9.Part1 do
     search_space = Enum.filter(rest, &(&1 < target))
 
     case find_pair_that_sum_to_target(target, search_space) do
-      {a, b} ->
+      {_a, _b} ->
         true
 
       _ ->
