@@ -2,7 +2,30 @@
 
 * So the clear strategy here was to look for streaks of +1s, count possible combinations for each, then multiply those together.
 * First, I tried to find a clever way to avoid enumerating all possible +1 sequences, but couldn't quite figure out the pattern.
-* However, even once I gave up and started trying to enumerate the sequences, it wasn't as easy as I expected...
+* However, even once I gave up and started trying to enumerate the sequences, it wasn't as easy as I expected. Then again, I didn't check to see whether there were any sequences longer than 6 (which I computed by hand for the doctests), I might have wasted a lot of time there.
+* I thought about caching the combination counts by length, but ended up not needing it since it was already fast. For next time though, I found a [simple cache implementation](https://github.com/thiagopromano/AdventOfCode/blob/main/lib/2020/10.ex) (to avoid having to pass a cache map around everywhere). Here it is with some cosmetic changes:
+
+```elixir
+  defmodule Cache do
+    use Agent
+    def start_link() do
+      Agent.start_link(fn -> %{} end, name: __MODULE__)
+    end
+    def fetch(key) do
+      Agent.get(__MODULE__, &Map.fetch(&1, key))
+    end
+    def put(key, value) do
+      Agent.update(__MODULE__, &Map.put(&1, key, value))
+    end
+  end
+```
+
+Usage:
+```elixir
+  Cache.start_link()
+  Cache.put(:key, 123)
+  Cache.fetch(:key) # -> 123
+```
 
 ```
       -------Part 1--------   -------Part 2--------
