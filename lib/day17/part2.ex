@@ -51,7 +51,7 @@ defmodule Day17.Part2 do
 
       for y <- ymin..ymax do
         for x <- xmin..xmax do
-          Map.get(map, {x, y, z})
+          Map.get(map, {x, y, z}, ".")
         end
         |> Enum.join()
         |> IO.puts()
@@ -76,17 +76,37 @@ defmodule Day17.Part2 do
         cond do
           active_neighbor_count == 3 -> {cube, "#"}
           active_neighbor_count == 2 && state == "#" -> {cube, "#"}
-          true -> {cube, "."}
+          true -> nil
         end
       end
+      |> Enum.filter(& &1)
       |> Map.new()
 
-    {min, max} =
+    {xmin, xmax} =
       new_map
       |> Map.keys()
+      |> Enum.map(fn {x, _, _, _} -> x end)
       |> Enum.min_max()
 
-    {new_map, {new_map, min, max}}
+    {ymin, ymax} =
+      new_map
+      |> Map.keys()
+      |> Enum.map(fn {_, y, _, _} -> y end)
+      |> Enum.min_max()
+
+    {zmin, zmax} =
+      new_map
+      |> Map.keys()
+      |> Enum.map(fn {_, _, z, _} -> z end)
+      |> Enum.min_max()
+
+    {wmin, wmax} =
+      new_map
+      |> Map.keys()
+      |> Enum.map(fn {_, _, _, w} -> w end)
+      |> Enum.min_max()
+
+    {new_map, {new_map, {xmin, ymin, zmin, wmin}, {xmax, ymax, zmax, wmax}}}
   end
 
   def count_active_neighbors(cube, map) do
