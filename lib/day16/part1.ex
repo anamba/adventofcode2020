@@ -4,13 +4,12 @@ defmodule Day16.Part1 do
       71
   """
   def part1(notes_filename, tickets_filename) do
-    {notes, my_ticket, nearby_tickets} = parse_input(notes_filename, tickets_filename)
+    {notes, _my_ticket, nearby_tickets} = parse_input(notes_filename, tickets_filename)
     valid_values = notes_to_mapset(notes)
 
-    invalid_count =
-      nearby_tickets
-      |> Enum.flat_map(&ticket_to_invalid_values(&1, valid_values))
-      |> Enum.sum()
+    nearby_tickets
+    |> Enum.flat_map(&ticket_to_invalid_values(&1, valid_values))
+    |> Enum.sum()
   end
 
   @doc """

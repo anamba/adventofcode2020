@@ -1,11 +1,12 @@
-# [2020 Day 20](https://adventofcode.com/2020/day/20) Notes
+# [2020 Day 22](https://adventofcode.com/2020/day/22) Notes
 
-* Finally came up with a good approach for Part 1, but the first step turned out to be finding the top left corner... which is indistiguishable from the other four corners, so I figured I might as well just find the corners only.
-* Looked at part 2 (yikes), and argh, I didn't even assemble the entire image yet. Maybe later...
+* Straightforward, my first attempt worked, I didn't even have to write any sub-tests this time because I was able to break the functions down pretty well.
+* I was originally thinking that part two would involve a whole bunch of crabs or other sea creatures (more players).
 
 ```
       -------Part 1--------   --------Part 2--------
 Day       Time  Rank  Score       Time   Rank  Score
+ 22   00:35:29  3496      0   00:58:58   1651      0
  20   02:18:30  2810      0          -      -      -
  19   00:55:46  1637      0          -      -      -
  18   01:44:15  4662      0   02:02:31   3782      0
